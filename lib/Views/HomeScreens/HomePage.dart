@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:nsbm_ipt/Views/AuthScreens/signin.dart';
+import 'AddQualificationPage.dart';
+import 'MyQualificationsPage.dart';
+import 'UpdateProfile.dart';
 import 'widgets/gradient_button.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,7 +23,6 @@ class _HomePageState extends State<HomePage> {
       drawer: Container(
         color: Colors.black38,
         child: Drawer(
-          
           // Add a ListView to the drawer. This ensures the user can scroll
           // through the options in the drawer if there isn't enough vertical
           // space to fit everything.
@@ -28,23 +31,36 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.zero,
             children: <Widget>[
               DrawerHeader(
-                child: Text('Drawer Header'),
+                child: Container(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "NSBM IPT",
+                      style: TextStyle(fontSize: 35),
+                    )
+                  ],
+                )),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.lightGreenAccent,
                 ),
               ),
+              // ListTile(
+              //   title: Text("Home"),
+              //   trailing: Icon(Icons.chevron_right),
+              //   onTap: () {
+              //     Navigator.of(context).pushAndRemoveUntil(
+              //         MaterialPageRoute(builder: (context) => HomePage()),
+              //         (Route<dynamic> route) => false);
+              //   },
+              // ),
               ListTile(
-                title: Text('Item 1'),
+                title: Text("Log Out"),
+                trailing: Icon(Icons.exit_to_app),
                 onTap: () {
-                  // Update the state of the app.
-                  // ...
-                },
-              ),
-              ListTile(
-                title: Text('Item 2'),
-                onTap: () {
-                  // Update the state of the app.
-                  // ...
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SignInPage()));
                 },
               ),
             ],
@@ -102,39 +118,24 @@ class _HomePageState extends State<HomePage> {
             GradientButton(
               text: "Add Qualifications".toUpperCase(),
               onPress: () {
-                setState(() {
-                  // userType = "user";
-                });
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => SignUp(
-                //           userType: userType,
-                //         )));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AddQualificationPage()));
               },
             ),
             SizedBox(height: 10.0),
             GradientButton(
               text: "My Qualifications".toUpperCase(),
               onPress: () {
-                setState(() {
-                  // userType = "hospital";
-                });
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => SignUp(
-                //           userType: userType,
-                //         )));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyQualificationsPage()));
               },
             ),
             SizedBox(height: 10.0),
             GradientButton(
               text: "My Profile".toUpperCase(),
               onPress: () {
-                setState(() {
-                  // userType = "pharmacy";
-                });
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => SignUp(
-                //           userType: userType,
-                //         )));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => UpdateProfilePage()));
               },
             ),
             SizedBox(height: 10.0),
